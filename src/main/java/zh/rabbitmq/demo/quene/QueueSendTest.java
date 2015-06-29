@@ -14,7 +14,7 @@ public class QueueSendTest {
 		AbstractApplicationContext ctx =
 				new AnnotationConfigApplicationContext(RabbitProduceConfiguration.class);
 		RabbitTemplate template = (RabbitTemplate) ctx.getBean("amqpTemplate");
-		for(int i=0;i<100;i++){
+		for(int i=0;i<10;i++){
 			template.convertAndSend("hello",SimpleBean.createSimpleBean(i));
 		}
 		ctx.destroy();
